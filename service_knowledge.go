@@ -18,6 +18,7 @@ type KnowledgeService interface {
 
 type knowledgeService service
 
+// TODO: pagination
 func (ks *knowledgeService) ListExtractions(opts *ListOptions) ([]map[string]interface{}, error) {
 	data, err := ks.client.NewRequest("GET", "/services/data/props/extractions", nil)
 	if err != nil {
@@ -33,6 +34,7 @@ func (ks *knowledgeService) ListExtractions(opts *ListOptions) ([]map[string]int
 	return extractions, nil
 }
 
+// TODO: pagination
 func (ks *knowledgeService) ListTransforms(opts *ListOptions) ([]map[string]interface{}, error) {
 	data, err := ks.client.NewRequest("GET", "/services/data/transforms/extractions", nil)
 	if err != nil {

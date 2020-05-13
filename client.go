@@ -34,6 +34,7 @@ type ListOptions struct {
 // Response represents a standard splunk API json response object
 // TODO: This is missing a number of standard fields
 type Response struct {
+	// TODO: This is probably a bad format to deliver as a user interface, but it worked for my experiment
 	Entry json.RawMessage `json:"entry"`
 }
 
@@ -84,6 +85,8 @@ func NewClient(config ClientConfig) (Client, error) {
 func (c *client) URL() string {
 	return c.rawurl
 }
+
+// TODO: better request methods for handling standard request types. Get(), Post(), Delete(), etc.
 
 // NewRequest builds an http.Request and sends the Response.Body as an io.ReadCloser
 func (c *client) NewRequest(method, uri string, body io.Reader) (*Response, error) {
