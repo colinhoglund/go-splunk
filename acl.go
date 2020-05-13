@@ -25,7 +25,7 @@ func NewACL(owner, sharing, read, write string) (*ACL, error) {
 	return &ACL{owner, sharing, read, write}, nil
 }
 
-// Encode returns the URL encoded
+// Encode returns the ACL as an encoded query string
 func (acl *ACL) Encode() string {
 	form := url.Values{}
 	form.Set("owner", acl.Owner)
